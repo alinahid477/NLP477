@@ -1,0 +1,10 @@
+1. Consume park JSON from http://nationalparks2.aws.rroom.net/layouts/NSWParksVisitor/Api/ParksJson.ashx
+2. Consume attractions in park from 	http://nationalparks2.aws.rroom.net/layouts/NSWParksVisitor/Api/RoutesJson.ashx
+					http://nationalparks2.aws.rroom.net/layouts/NSWParksVisitor/Api/AccommodationJson.ashx
+					http://nationalparks2.aws.rroom.net/layouts/NSWParksVisitor/Api/EventsJson.ashx
+3. Add/Edit/Delete Parks
+4. Add/Edit/Delete Attraction
+
+5. Search using NLP
+
+* use ninject for dependency injection

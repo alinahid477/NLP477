@@ -1,9 +1,6 @@
 # Ignore paths that contain user-generated content.
-docroot/files
-docroot/sites/*/files
-docroot/sites/*/private
-docroot/sites/default/settings.php
-
+NLP477/NLP477/obj/*
+NLP477/NLP477/bin/NLP477.*
 .idea
 .iml
 .project

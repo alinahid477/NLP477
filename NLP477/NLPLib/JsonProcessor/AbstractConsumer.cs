@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NLPLib.IO.Interfaces;
 using NLPLib.JsonProcessor.Interfaces;
 using NLPLib.DataObjects.Interfaces;
 
 namespace NLPLib.JsonProcessor
 {
-    public abstract class AbstractConsumer : IProcessJson, IDownloader 
+    public abstract class AbstractConsumer : IProcessJson
     {
         public string url = null;
-        public string Download(string url)
+        public string ReadJSON(IInputReader input)
         {
-            return null;
+            return input.ReadInput(url);
         }
 
         abstract public List<IPlace> Process(string json);

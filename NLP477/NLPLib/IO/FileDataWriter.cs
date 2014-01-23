@@ -8,7 +8,7 @@ using System.IO;
 
 namespace NLPLib.IO
 {
-    public class FileDataWriter : Interfaces.IWriteData, IDisposable
+    public class FileDataWriter : Interfaces.IDataWriter, IDisposable
     {
         bool isAppend = false;
         StreamWriter file = null;

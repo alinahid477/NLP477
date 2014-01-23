@@ -9,17 +9,19 @@ namespace NLPLib.Processors
     abstract public class AbstractProcessor : Interfaces.IProcessor
     {
         protected JsonProcessor.AbstractConsumer consumer = null;
-        protected IO.Interfaces.IWriteData writer = null;
+        protected IO.Interfaces.IDataWriter writer = null;
+        protected IO.Interfaces.IInputReader reader = null;
 
         public string JSON { get; set; }
 
-        public AbstractProcessor(IO.Interfaces.IWriteData writer)
+        public AbstractProcessor(IO.Interfaces.IDataWriter writer, IO.Interfaces.IInputReader reader)
         {
             this.writer = writer;
+            this.reader = reader;
         }
         public void DownloadJSON()
         {
-            JSON = consumer.Download(consumer.url);
+            JSON = consumer.ReadJSON(reader);
         }
         public abstract bool Process();
     }

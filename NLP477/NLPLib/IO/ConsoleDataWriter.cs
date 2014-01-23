@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NLPLib.IO
 {
-    public class ConsoleDataWriter : Interfaces.IWriteData
+    public class ConsoleDataWriter : Interfaces.IDataWriter
     {
         public void WriteData(DataObjects.Interfaces.IPlace place)
         {

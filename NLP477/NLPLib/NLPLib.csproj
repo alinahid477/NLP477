@@ -45,14 +45,16 @@
     <Compile Include="DataObjects\Interfaces\IPlace.cs" />
     <Compile Include="DataObjects\Park.cs" />
     <Compile Include="IO\ConsoleDataWriter.cs" />
+    <Compile Include="IO\Download.cs" />
     <Compile Include="IO\FileDataWriter.cs" />
+    <Compile Include="IO\ReadFromFile.cs" />
     <Compile Include="JsonProcessor\AbstractConsumer.cs" />
-    <Compile Include="JsonProcessor\Interfaces\IDownloader.cs" />
+    <Compile Include="IO\Interfaces\IInputReader.cs" />
     <Compile Include="JsonProcessor\Interfaces\IProcessJson.cs" />
     <Compile Include="JsonProcessor\Consumers.cs" />
     <Compile Include="Processors\AbstractProcessor.cs" />
     <Compile Include="Processors\Interfaces\IProcessor.cs" />
-    <Compile Include="IO\Interfaces\IWriteData.cs" />
+    <Compile Include="IO\Interfaces\IDataWriter.cs" />
     <Compile Include="Processors\ProcessParks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

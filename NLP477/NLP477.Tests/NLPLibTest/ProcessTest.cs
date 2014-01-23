@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using NLPLib.IO.Interfaces;
+using NLPLib.IO;
 using NLPLib.Processors;
 using NLPLib.Processors.Interfaces;
 
@@ -16,9 +16,9 @@ namespace NLP477.Tests.NLPLibTest
         [TestMethod]
         public void ProcessParkTest()
         {
-            var mockDataWriter = new Mock<IWriteData>();
-            
-            ProcessParks processParksObj = new ProcessParks(mockDataWriter.Object);
+            var mockDataWriter = new Mock<ConsoleDataWriter>();
+            var mockInputReader = new Mock<ReadFromFile>();
+            ProcessParks processParksObj = new ProcessParks(mockDataWriter.Object, mockInputReader);
             processParksObj.JSON = "";
 
             Assert.IsTrue(this.ProcessPark(processParksObj));

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLPLib.JsonProcessor.Interfaces
+namespace NLPLib.IO.Interfaces
 {
-    public interface IDownloader
+    public interface IInputReader
     {
-        string Download(string url);
+        string ReadInput(string source);
     }
 }

@@ -8,18 +8,19 @@ namespace NLPLib.DataObjects
 {
     public class Route : Interfaces.IPlace
     {
-        string _name = null;
-        public Route(string name)
+        string _id = null;
+        public string Name { get; set; }
+        public string Id { get { return _id; } }
+
+        public Route(string id, string name)
         {
-            _name = name;
+            _id = id;
+            Name = name;
         }
 
-        public string Name
+        public override string ToString()
         {
-            get
-            {
-                return _name;
-            }
+            return "Route: " + Name;
         }
     }
 }

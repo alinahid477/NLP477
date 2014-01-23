@@ -44,11 +44,13 @@
     <Compile Include="DataObjects\Accomodation.cs" />
     <Compile Include="DataObjects\Interfaces\IPlace.cs" />
     <Compile Include="DataObjects\Park.cs" />
-    <Compile Include="IO\DataWriter.cs" />
+    <Compile Include="IO\ConsoleDataWriter.cs" />
+    <Compile Include="IO\FileDataWriter.cs" />
     <Compile Include="JsonProcessor\AbstractConsumer.cs" />
     <Compile Include="JsonProcessor\Interfaces\IDownloader.cs" />
     <Compile Include="JsonProcessor\Interfaces\IProcessJson.cs" />
     <Compile Include="JsonProcessor\Consumers.cs" />
+    <Compile Include="Processors\AbstractProcessor.cs" />
     <Compile Include="Processors\Interfaces\IProcessor.cs" />
     <Compile Include="IO\Interfaces\IWriteData.cs" />
     <Compile Include="Processors\ProcessParks.cs" />

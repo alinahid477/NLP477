@@ -10,15 +10,10 @@ namespace NLPLib.JsonProcessor
 {
     public abstract class AbstractConsumer : IProcessJson, IDownloader 
     {
-        public AbstractConsumer(string urlToConsume)
-        {
-            this.Download(urlToConsume);
-        }
-        public string JSON { get; set; }
+        public string url = null;
         public string Download(string url)
         {
-            JSON = null;
-            return JSON;
+            return null;
         }
 
         abstract public List<IPlace> Process(string json);

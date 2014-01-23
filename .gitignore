@@ -9,3 +9,6 @@ NLP477/NLP477.Tests/obj/
 NLP477/NLPLib/obj/
 NLP477/TestResults/
 NLP477/NLP477.Tests/bin/Debug/
+NLPLib*.dll
+NLP477/NLPLib/bin/Debug/NLPLib.dll.config
+*.pdb

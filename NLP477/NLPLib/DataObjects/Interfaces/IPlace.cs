@@ -8,6 +8,7 @@ namespace NLPLib.DataObjects.Interfaces
 {
     public interface IPlace
     {
-        string Name { get; }
+        string Name { get; set; }
+        string Id { get; }
     }
 }

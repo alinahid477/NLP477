@@ -8,18 +8,19 @@ namespace NLPLib.DataObjects
 {
     public class Park : Interfaces.IPlace
     {
-        string _name = null;
-        public Park(string name)
+        string _id = null;
+        public string Name { get; set; }
+        public string Id { get { return _id; } }
+        public Park(string id, string name)
         {
-            _name = name;
+            _id = id;
+            Name = name;
         }
 
-        public string Name
+        public override string ToString()
         {
-            get
-            {
-                return _name;
-            }
+            return "Park : "+Name;
         }
+
     }
 }

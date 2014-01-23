@@ -8,6 +8,6 @@ namespace NLPLib.Processors.Interfaces
 {
     public interface IProcessor
     {
-        void Process(IO.Interfaces.IWriteData writer);
+        bool Process();
     }
 }

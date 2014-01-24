@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLPLib.IO.Interfaces
+namespace NLPLib.Query.IO.Interfaces
 {
     public interface IDataWriter
     {

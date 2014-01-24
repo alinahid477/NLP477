@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLPLib.Processors
+namespace NLPLib.Query.Processors
 {
     sealed public class ProcessParks : AbstractProcessor
     {

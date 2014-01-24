@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLPLib.DataObjects
+namespace NLPLib.Query.DataObjects
 {
     public class Route : Interfaces.IPlace
     {

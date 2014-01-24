@@ -131,9 +131,9 @@
       <Project>{B467380C-4D6A-441D-B35E-451E74034063}</Project>
       <Name>NLP477</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NLPLib\NLPLib.csproj">
+    <ProjectReference Include="..\NLPLib\NLPLib.Query.csproj">
       <Project>{8e4c6078-5fb9-4105-91c6-f8bd38cc42b5}</Project>
-      <Name>NLPLib</Name>
+      <Name>NLPLib.Query</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

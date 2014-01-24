@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLPLib.IO
+namespace NLPLib.Query.IO
 {
     public class ConsoleDataWriter : Interfaces.IDataWriter
     {

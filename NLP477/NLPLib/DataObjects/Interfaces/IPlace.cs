@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLPLib.DataObjects.Interfaces
+namespace NLPLib.Query.DataObjects.Interfaces
 {
     public interface IPlace
     {

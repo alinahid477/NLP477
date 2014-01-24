@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.IO;
 
-namespace NLPLib.IO
+namespace NLPLib.Query.IO
 {
     public class FileDataWriter : Interfaces.IDataWriter, IDisposable
     {

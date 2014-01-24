@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NLPLib.IO.Interfaces;
-using NLPLib.JsonProcessor.Interfaces;
-using NLPLib.DataObjects.Interfaces;
+using NLPLib.Query.IO.Interfaces;
+using NLPLib.Query.JsonProcessor.Interfaces;
+using NLPLib.Query.DataObjects.Interfaces;
 
-namespace NLPLib.JsonProcessor
+namespace NLPLib.Query.JsonProcessor
 {
     public abstract class AbstractConsumer : IProcessJson
     {

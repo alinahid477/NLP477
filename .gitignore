@@ -12,3 +12,4 @@ NLP477/NLP477.Tests/bin/Debug/
 NLPLib*.dll
 NLP477/NLPLib/bin/Debug/NLPLib.dll.config
 *.pdb
+MyIgnore/

@@ -116,7 +116,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NLPLibTest\ProcessTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -131,12 +130,10 @@
       <Project>{B467380C-4D6A-441D-B35E-451E74034063}</Project>
       <Name>NLP477</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NLPLib\NLPLib.Query.csproj">
-      <Project>{8e4c6078-5fb9-4105-91c6-f8bd38cc42b5}</Project>
-      <Name>NLPLib.Query</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="NLPLibTest\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

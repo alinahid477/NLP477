@@ -1,0 +1,9 @@
+P:\PROGRAMMING\NET\NLP\NLP477\NLP.Infrastructure\bin\Debug\NLP.Infrastructure.dll
+P:\PROGRAMMING\NET\NLP\NLP477\NLP.Infrastructure\bin\Debug\NLP.Infrastructure.pdb
+P:\PROGRAMMING\NET\NLP\NLP477\NLP.Infrastructure\bin\Debug\Newtonsoft.Json.dll
+P:\PROGRAMMING\NET\NLP\NLP477\NLP.Infrastructure\bin\Debug\Ninject.dll
+P:\PROGRAMMING\NET\NLP\NLP477\NLP.Infrastructure\bin\Debug\Newtonsoft.Json.xml
+P:\PROGRAMMING\NET\NLP\NLP477\NLP.Infrastructure\bin\Debug\Ninject.pdb
+P:\PROGRAMMING\NET\NLP\NLP477\NLP.Infrastructure\bin\Debug\Ninject.xml
+P:\PROGRAMMING\NET\NLP\NLP477\NLP.Infrastructure\obj\Debug\NLP.Infrastructure.dll
+P:\PROGRAMMING\NET\NLP\NLP477\NLP.Infrastructure\obj\Debug\NLP.Infrastructure.pdb

@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace NLP.Processor.ParkProcessor.CommandHandlers
 {
-    public class DownloadParksCommndHandler : Handles<DownloadParksCommand>
+    public class DownloadParksCommandHandler : Handles<DownloadParksCommand>
     {
         private IParkRepository repository;
         private ExceptionManager exManager;
 
-        public DownloadParksCommndHandler(IParkRepository repo, ExceptionManager expMngr)
+        public DownloadParksCommandHandler(IParkRepository repo, ExceptionManager expMngr)
         {
             this.repository = repo;
             this.exManager = expMngr;

@@ -1,4 +1,4 @@
-﻿using Ninject.Modules;
+﻿
 using NLP.Infrastructure.Commands;
 using NLP.Infrastructure.Events;
 using NLP.Repository.Contexts;
@@ -8,6 +8,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Ninject;
+using Ninject.Modules;
+using Ninject.Extensions.Conventions;
 
 namespace NLP.Processor
 {

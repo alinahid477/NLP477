@@ -13,3 +13,12 @@ NLPLib*.dll
 NLP477/NLPLib/bin/Debug/NLPLib.dll.config
 *.pdb
 MyIgnore/
+NLP477/NLP.DTO/bin/Debug/
+NLP477/NLP.DTO/obj/Debug/
+NLP477/NLP.Domain/bin/Debug/
+NLP477/NLP.Domain/obj/Debug/
+NLP477/NLP.Infrastructure/bin/Debug/
+NLP477/NLP.Processor/bin/Debug/
+NLP477/NLP.Infrastructure/obj/
+NLP477/NLP.Processor/obj/
+NLP477/

@@ -47,7 +47,7 @@ namespace NLP.Infrastructure.Commands
             }
             finally
             {
-                commandLogger.LogCommand(command);
+                //commandLogger.LogCommand(command);
             }
 
         }

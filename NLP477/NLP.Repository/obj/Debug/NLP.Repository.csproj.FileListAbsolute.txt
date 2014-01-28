@@ -6,13 +6,11 @@ P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\EntityFramework.dll
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\EntityFramework.SqlServer.dll
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\NLP.Infrastructure.dll
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\Ninject.dll
-P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\Newtonsoft.Json.dll
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\NLP.Infrastructure.pdb
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\EntityFramework.xml
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\EntityFramework.SqlServer.xml
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\Ninject.pdb
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\Ninject.xml
-P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\Newtonsoft.Json.xml
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\obj\Debug\NLP.Repository.dll
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\obj\Debug\NLP.Repository.pdb
 P:\PROGRAMMING\NET\NLP\NLP477\NLP.Repository\bin\Debug\NLP.Domain.dll

@@ -12,5 +12,8 @@ namespace NLP.Repository.ParkRepository
         Park GetPark(Guid uniqueId);
         Park GetParkByCode(string parkCode);
         List<Park> GetAll();
+        void Add(Park park);
+        void Update(Park park);
+        void AddBulk(List<Park> park);
     }
 }

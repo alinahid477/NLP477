@@ -17,6 +17,9 @@ namespace NLP.DTO.Places
             }
         }
 
+        public string ParkCODE { get; set; }
+        public string ParkName { get; set; }
+        public string ParkDesciption { get; set; }
 
     }
 }

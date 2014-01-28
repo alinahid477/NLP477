@@ -1,4 +1,4 @@
-1. Consume park JSON from http://nationalparks2.aws.rroom.net/layouts/NSWParksVisitor/Api/ParksJson.ashx
+1. Consume park JSON from http://nationalparks2.aws.rroom.net/layouts/NSWParksVisitor/Api/ParksJson.ashx OR http://nationalparks2.aws.rroom.net/layouts/NSWParksVisitor/Api/FireAlertJson.ashx?type=parks
 2. Consume attractions in park from 	http://nationalparks2.aws.rroom.net/layouts/NSWParksVisitor/Api/RoutesJson.ashx
 					http://nationalparks2.aws.rroom.net/layouts/NSWParksVisitor/Api/AccommodationJson.ashx
 					http://nationalparks2.aws.rroom.net/layouts/NSWParksVisitor/Api/EventsJson.ashx
@@ -8,3 +8,15 @@
 5. Search using NLP
 
 * use ninject for dependency injection
+
+
+
+
+WORK ON:
+===========
+28-01-2014
+============
+1. DownloadParksCommandHandler -> Download from url. Use a dummy object to fill a list of List<domain.Park> object. 
+2. Do ParkRepository.AddInBulk(List<domain.Park>);
+3. Implement ParkRepository.AddInBulk
+4. See how the database is getting created and filled.

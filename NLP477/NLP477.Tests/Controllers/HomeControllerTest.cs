@@ -5,11 +5,11 @@ using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NLP477;
-using NLP477.Controllers;
+//using NLP477.Controllers;
 
 namespace NLP477.Tests.Controllers
 {
-    [TestClass]
+    /*[TestClass]
     public class HomeControllerTest
     {
         [TestMethod]
@@ -50,5 +50,5 @@ namespace NLP477.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-    }
+    }*/
 }

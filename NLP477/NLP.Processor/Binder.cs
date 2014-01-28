@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Extensions.Conventions;
+using NLP.Processor.Loggers;
+using NLP.Processor.Exceptions;
+using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
 
 namespace NLP.Processor
 {
@@ -21,12 +24,22 @@ namespace NLP.Processor
         {
             Kernel.Bind<ICommandBus>().To<CommandBus>().InSingletonScope(); // verified. singleton
             Kernel.Bind<IEventBus>().To<EventBus>().InSingletonScope(); // verified. singleton
-            //Kernel.Bind<ISchedulerService>().To<SchedulerService>().InSingletonScope();
             Kernel.Bind<ICommandSerializer>().To<CommandSerializer>().InSingletonScope(); // verified. singleton
             Kernel.Bind<IEventSerializer>().To<EventSerializer>().InSingletonScope(); // verified. singleton
 
             //Db Context
             Kernel.Bind<NLPDomainContext>().ToConstructor(x => new NLPDomainContext());
+
+            //Configurators          
+            Kernel.Bind<IExceptionMangerProfiles>().To<ExceptionManagerProfiles>().InSingletonScope(); // verified. singleton
+            Kernel.Bind<ILoggingConfigurator>().To<LoggingConfigurator>().InSingletonScope(); // verified. singleton
+
+            //Exception
+            Kernel.Bind<ExceptionManager>().ToProvider<ExceptionManagerFactory>().InSingletonScope(); // verified. singleton.
+
+            // Loggers
+            Kernel.Bind<ICommandLogger>().To<CommandLogger>().InSingletonScope(); // verified. ok as singleton
+            Kernel.Bind<IEventLogger>().To<EventLogger>().InSingletonScope(); // verified. ok as singleton
 
             //Repostiories - all in request scope
             Kernel.Bind<IParkRepository>().To<ParkRepository>();
@@ -34,6 +47,10 @@ namespace NLP.Processor
             Kernel.Bind(x =>
             {
                 x.FromThisAssembly().SelectAllClasses().InheritedFromAny(typeof(Handles<>), typeof(Subscribes<>)).BindAllInterfaces().Configure(c => c.InTransientScope());
+            });
+            Kernel.Bind(x =>
+            {
+                x.FromThisAssembly().SelectAllClasses().InheritedFromAny(typeof(IExceptionPolicy<>)).BindAllInterfaces().Configure(c => c.InTransientScope());
             });
         }
     }

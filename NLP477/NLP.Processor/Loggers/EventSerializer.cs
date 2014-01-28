@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using NLP.Infrastructure.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLP.Infrastructure.Events
+namespace NLP.Processor.Loggers
 {
     public class EventSerializer : IEventSerializer
     {

@@ -6,7 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLP.Infrastructure.Commands
+using NLP.Infrastructure.Commands;
+
+
+namespace NLP.Processor.Loggers
 {
     public class CommandLogger : ICommandLogger
     {

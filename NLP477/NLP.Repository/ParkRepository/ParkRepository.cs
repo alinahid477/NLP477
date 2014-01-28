@@ -37,7 +37,12 @@ namespace NLP.Repository.ParkRepository
 
         public override void Add(Park park)
         { 
-        
+            
+        }
+
+        public void AddBulk(List<Park> park)
+        {
+
         }
 
         public override void Update(Park park)

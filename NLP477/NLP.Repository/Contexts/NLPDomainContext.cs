@@ -12,5 +12,10 @@ namespace NLP.Repository.Contexts
     {
         public DbSet<Park> Parks { get; set; }
         public DbSet<Accomodation> Accomodations { get; set; }
+        static NLPDomainContext()
+        {
+            var _ = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
+            //var __ = typeof(System.Data.Entity.SqlServerCompact.SqlCeProviderServices);
+        }
     }
 }

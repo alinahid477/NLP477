@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\ErrorBase.cs" />
+    <Compile Include="Exceptions\SystemError.cs" />
     <Compile Include="Places\ParkDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

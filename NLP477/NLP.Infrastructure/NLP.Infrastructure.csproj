@@ -30,14 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,8 +45,6 @@
     <Compile Include="Aggregate\Aggregate.cs" />
     <Compile Include="Commands\AbstractCommand.cs" />
     <Compile Include="Commands\CommandBus.cs" />
-    <Compile Include="Commands\CommandLogger.cs" />
-    <Compile Include="Commands\CommandSerializer.cs" />
     <Compile Include="Commands\CommandStatus.cs" />
     <Compile Include="Commands\Handles.cs" />
     <Compile Include="Commands\ICommand.cs" />
@@ -58,8 +52,6 @@
     <Compile Include="Commands\ICommandLogger.cs" />
     <Compile Include="Commands\ICommandSerializer.cs" />
     <Compile Include="Events\EventBus.cs" />
-    <Compile Include="Events\EventLogger.cs" />
-    <Compile Include="Events\EventSerializer.cs" />
     <Compile Include="Events\IEvent.cs" />
     <Compile Include="Events\IEventBus.cs" />
     <Compile Include="Events\IEventLogger.cs" />

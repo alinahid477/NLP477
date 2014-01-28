@@ -46,11 +46,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Ninject.Extensions.Conventions.3.0.0.11\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.0.0.7\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -122,8 +126,12 @@
       <Private>True</Private>
       <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="NLPLibTest\TestDownloadCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
@@ -146,14 +154,6 @@
     <ProjectReference Include="..\NLP.Processor\NLP.Processor.csproj">
       <Project>{ae140ee2-3a86-4b71-b759-6c767fe10dd4}</Project>
       <Name>NLP.Processor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NLP.Repository\NLP.Repository.csproj">
-      <Project>{6eb6e3ee-89e5-4e1f-881a-2424c4cd857f}</Project>
-      <Name>NLP.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NLP477\NLP477.csproj">
-      <Project>{B467380C-4D6A-441D-B35E-451E74034063}</Project>
-      <Name>NLP477</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

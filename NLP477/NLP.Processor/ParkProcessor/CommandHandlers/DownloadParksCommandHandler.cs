@@ -23,10 +23,18 @@ namespace NLP.Processor.ParkProcessor.CommandHandlers
 
         public void Handle(DownloadParksCommand command)
         {
-            exManager.Process(() => {
-                string downloadedJSON = Utils.Utility.DownloadFromURL(command.ParkDTO.DownloadURL); 
-            }, "ProcessorPolicy");
+            exManager.Process(() => this.ProcessAction(command), "ProcessorPolicy");
         }
+
+        private void ProcessAction(DownloadParksCommand command)
+        {
+            string downloadedtext = "";
+            if (command.ParkDTO.DownloadURL.Contains("http"))
+                downloadedtext = Utils.Utility.DownloadFromURL(command.ParkDTO.DownloadURL);
+            else
+                downloadedtext = Utils.Utility.DownloadFromFile(command.ParkDTO.DownloadURL);
+        }
+
     }
 }
     

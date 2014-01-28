@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLP.Infrastructure.Events;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLP.Infrastructure.Events
+namespace NLP.Processor.Loggers
 {
     public class EventLogger : IEventLogger
     {

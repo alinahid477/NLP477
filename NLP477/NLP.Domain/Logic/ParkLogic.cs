@@ -28,11 +28,17 @@ namespace NLP.Domain.Logic
                 downloadedtext = ExternalReader.DownloadFromFile(dto.DownloadSource);
 
             List<ParkDTO> list = JsonConvert.DeserializeObject<List<ParkDTO>>(downloadedtext);
+             
             List<Park> parkList = new List<Park>();
             foreach (ParkDTO pdto in list)
             {
+                List<Location> llist = new List<Location>();
+                foreach(string s in pdto.seo.location_keywords.Split(new string[]{","}, StringSplitOptions.RemoveEmptyEntries) )
+                {
+                    llist.Add(new Location(s.Trim()));
+                }
                 Park x = new Park();
-                x.Create(pdto.ParkName, pdto.ParkCODE, pdto.ParkDesciption);
+                x.Create(pdto.seo.meta_title, pdto.ParkCODE, pdto.seo.meta_description, llist);
                 parkList.Add(x);
             }
             this.events.Add(new ParksCreated("Total parks created : " + parkList.Count));

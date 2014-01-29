@@ -19,13 +19,15 @@ namespace NLP.Domain.Places
         public string Description { get; private set; }
         public string Url { get; private set; }
         public string ParkCode { get; private set; }
+        public virtual List<Location> Locations { get; private set; }
         public virtual List<Accomodation> Accomodations { get; private set; }
 
-        public void Create(string title, string parkCode, string description)
+        public void Create(string title, string parkCode, string description, List<Location> locations)
         {
             Title = title;
             ParkCode = parkCode;
             Description = description;
+            this.Locations = locations;
         }
 
     }

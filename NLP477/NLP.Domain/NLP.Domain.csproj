@@ -47,6 +47,7 @@
     <Compile Include="IPlace.cs" />
     <Compile Include="Logic\ParkLogic.cs" />
     <Compile Include="Places\Accomodation.cs" />
+    <Compile Include="Places\Location.cs" />
     <Compile Include="Places\Park.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

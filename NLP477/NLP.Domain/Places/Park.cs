@@ -21,11 +21,12 @@ namespace NLP.Domain.Places
         public string ParkCode { get; private set; }
         public virtual List<Accomodation> Accomodations { get; private set; }
 
-        public void CreateFromDTO(string title, string parkCode, string description)
+        public void Create(string title, string parkCode, string description)
         {
             Title = title;
             ParkCode = parkCode;
             Description = description;
         }
+
     }
 }

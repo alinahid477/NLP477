@@ -1,5 +1,5 @@
 ﻿using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
-using Newtonsoft.Json;
+using NLP.Domain.Logic;
 using NLP.Domain.Places;
 using NLP.DTO.Places;
 using NLP.Infrastructure.Commands;
@@ -32,22 +32,9 @@ namespace NLP.Processor.ParkProcessor.CommandHandlers
 
         private void ProcessAction(DownloadParksCommand command)
         {
-            string downloadedtext = null;
-            if (command.ParkDTO.DownloadURL.Contains("http"))
-                downloadedtext = Utils.Utility.DownloadFromURL(command.ParkDTO.DownloadURL);
-            else
-                downloadedtext = Utils.Utility.DownloadFromFile(command.ParkDTO.DownloadURL);
-
-            List<ParkDTO> list = JsonConvert.DeserializeObject<List<ParkDTO>>(downloadedtext);
-            List<Park> parkList = new List<Park>();
-            foreach (ParkDTO dto in list)
-            {
-                Park x = new Park();
-                x.CreateFromDTO(dto.ParkName, dto.ParkCODE, dto.ParkDesciption);
-                parkList.Add(x);
-            }
-            this.repository.AddBulk(parkList);
-
+            ParkLogic logic = new ParkLogic();
+            logic.DownloadParksFromExternalSource(command.ParkDTO);
+            this.repository.AddBulk(logic);
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using NLP.Domain.Places;
+﻿using NLP.Domain.Logic;
+using NLP.Domain.Places;
 using NLP.Infrastructure.Events;
 using NLP.Repository.Contexts;
 using System;
@@ -35,17 +36,20 @@ namespace NLP.Repository.ParkRepository
             return park;
         }
 
-        public override void Add(Park park)
+        public override void Add(Park entity)
         { 
             
         }
 
-        public void AddBulk(List<Park> park)
+        public void AddBulk(ParkLogic logicalEntity)
         {
-
+            context.Parks.AddRange(logicalEntity.Parks);
+            this.uncommittedEvents = logicalEntity.Events.ToList();
+            context.SaveChanges();
+            this.CommitEvents();
         }
 
-        public override void Update(Park park)
+        public override void Update(Park entity)
         { 
             
         }

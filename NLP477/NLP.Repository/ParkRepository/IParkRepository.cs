@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NLP.Domain.Places;
+using NLP.Domain.Logic;
 
 namespace NLP.Repository.ParkRepository
 {
@@ -14,6 +15,6 @@ namespace NLP.Repository.ParkRepository
         List<Park> GetAll();
         void Add(Park park);
         void Update(Park park);
-        void AddBulk(List<Park> park);
+        void AddBulk(ParkLogic park);
     }
 }

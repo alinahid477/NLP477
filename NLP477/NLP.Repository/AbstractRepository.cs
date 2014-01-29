@@ -20,7 +20,7 @@ namespace NLP.Repository
             this.uncommittedEvents = new List<IEvent>();
             this.eventBus = eventBus;
         }
-
+        
         protected void CommitEvents()
         {
             foreach (IEvent @event in uncommittedEvents)

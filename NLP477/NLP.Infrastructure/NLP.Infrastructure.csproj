@@ -51,6 +51,7 @@
     <Compile Include="Commands\ICommandBus.cs" />
     <Compile Include="Commands\ICommandLogger.cs" />
     <Compile Include="Commands\ICommandSerializer.cs" />
+    <Compile Include="Events\AbstractEvent.cs" />
     <Compile Include="Events\EventBus.cs" />
     <Compile Include="Events\IEvent.cs" />
     <Compile Include="Events\IEventBus.cs" />

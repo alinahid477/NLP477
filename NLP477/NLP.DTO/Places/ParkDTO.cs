@@ -9,11 +9,18 @@ namespace NLP.DTO.Places
 {
     public class ParkDTO
     {
-        public string DownloadURL 
+        private string _downloadsource = null;
+        public string DownloadSource 
         {
             get
             {
-                return ConfigurationManager.AppSettings["ParksDownloadURL"];
+                if (_downloadsource == null)
+                    return ConfigurationManager.AppSettings["ParksDownloadURL"];
+                return _downloadsource;
+            }
+            set
+            {
+                _downloadsource = value;
             }
         }
 

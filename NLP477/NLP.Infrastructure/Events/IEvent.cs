@@ -8,7 +8,7 @@ namespace NLP.Infrastructure.Events
 {
     public interface IEvent
     {
-        String EventGUID { get; }
+        string EventGUID { get; }
         DateTime DateTime { get; }
     }
 }

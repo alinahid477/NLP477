@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="Exceptions\ErrorBase.cs" />
     <Compile Include="Exceptions\SystemError.cs" />
+    <Compile Include="Places\AccomodationDTO.cs" />
     <Compile Include="Places\ParkDTO.cs" />
+    <Compile Include="SEODTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

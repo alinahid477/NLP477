@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLP.Services.Util;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,20 @@ namespace NLP.Services.External
                 sr.Close();
             }
             return s;
+        }
+
+
+        public static string Download(string source)
+        {
+            string downloadedtext = null;
+            if (Utility.IsJson(source))
+                downloadedtext = source;
+            else if (source.Contains("http"))
+                downloadedtext = ExternalReader.DownloadFromURL(source);
+            else
+                downloadedtext = ExternalReader.DownloadFromFile(source);
+
+            return downloadedtext;
         }
     }
 }

@@ -57,13 +57,8 @@ namespace NLP.DTO.Places
                 _parkdescription = value;
             }
         }
-        public ParkSEO seo { get; set; }
+        public SEODTO seo { get; set; }
     }
 
-    public class ParkSEO
-    {
-        public string meta_title { get; set; }
-        public string meta_description { get; set; }
-        public string location_keywords { get; set; }
-    }
+    
 }

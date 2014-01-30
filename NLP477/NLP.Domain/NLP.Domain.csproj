@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\AccomodationsCreated.cs" />
     <Compile Include="Events\ParksCreated.cs" />
     <Compile Include="IPlace.cs" />
+    <Compile Include="Logic\AccomodationLogic.cs" />
+    <Compile Include="Logic\DownloadLogic.cs" />
+    <Compile Include="Logic\IDownloadLogic.cs" />
     <Compile Include="Logic\ParkLogic.cs" />
     <Compile Include="Places\Accomodation.cs" />
     <Compile Include="Places\Location.cs" />

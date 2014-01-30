@@ -14,6 +14,8 @@ namespace NLP477
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/JSLINQ").Include("~/Scripts/JSLINQ.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));

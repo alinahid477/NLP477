@@ -18,6 +18,12 @@
         </div>
     </section>
 }
+<script language="javascript">
+    var data = @Html.Raw(ViewBag.JSONData);
+    var exam = JSLINQ(data).Select(function(item){ return item.accommodation_url; })
+    alert(exam);
+</script>
+
 <h3>We suggest the following:</h3>
 <ol class="round">
     <li class="one">

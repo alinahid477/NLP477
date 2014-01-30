@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,7 +12,7 @@ namespace NLP477.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
+            ViewBag.JSONData = this.JSONTest();
             return View();
         }
 
@@ -28,5 +29,18 @@ namespace NLP477.Controllers
 
             return View();
         }
+
+
+        private string JSONTest()
+        { 
+            string json = "";
+            using(StreamReader sr = new StreamReader("C:\\Ali\\RR\\NETTools\\NLP477\\AccommodationJson.TXT"))
+            {
+                json = sr.ReadToEnd();
+                sr.Close();
+            }
+            return json;
+        }
+
     }
 }

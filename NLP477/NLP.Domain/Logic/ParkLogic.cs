@@ -38,7 +38,7 @@ namespace NLP.Domain.Logic
                     llist.Add(new Location(s.Trim()));
                 }
                 Park x = new Park();
-                x.Create(pdto.seo.meta_title, pdto.ParkCODE, pdto.seo.meta_description, llist);
+                x.Create(pdto.ItemID, pdto.ParkName, pdto.ParkURL, pdto.ParkCODE, pdto.ParkDescription, llist);
                 parkList.Add(x);
             }
             this.events.Add(new ParksCreated("Total parks created : " + parkList.Count));

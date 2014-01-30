@@ -27,6 +27,36 @@ namespace NLP.DTO.Places
         public string ParkCODE { get; set; }
         public string ParkURL { get; set; }
         public Guid ItemID { get; set; }
+        private string _parkname;
+        public string ParkName 
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_parkname))
+                    return _parkname;
+                else
+                    return seo.meta_title;
+            }
+            set
+            {
+                _parkname = value;
+            }
+        }
+        private string _parkdescription;
+        public string ParkDescription 
+        {
+            get 
+            {
+                if (!string.IsNullOrEmpty(_parkdescription))
+                    return _parkdescription;
+                else
+                    return seo.meta_description;
+            }
+            set
+            {
+                _parkdescription = value;
+            }
+        }
         public ParkSEO seo { get; set; }
     }
 

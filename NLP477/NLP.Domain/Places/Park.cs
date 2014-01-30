@@ -22,12 +22,33 @@ namespace NLP.Domain.Places
         public virtual List<Location> Locations { get; private set; }
         public virtual List<Accomodation> Accomodations { get; private set; }
 
-        public void Create(string title, string parkCode, string description, List<Location> locations)
+        public Park()
         {
+            UniqueId = Guid.Empty;
+            this.Accomodations = new List<Accomodation>();
+        }
+
+        public void Create(Guid uniqueId, string title, string url, string parkCode, string description, List<Location> locations)
+        {
+            UniqueId = uniqueId;
             Title = title;
+            Url = url;
             ParkCode = parkCode;
             Description = description;
             this.Locations = locations;
+        }
+
+        public void AddAccomodation(Accomodation accomodation)
+        {
+            if (UniqueId == Guid.Empty)
+                throw new NullReferenceException("Park object has not been created. Use Create() to create park object");
+            this.Accomodations.Add(accomodation);
+        }
+        public void AddAccomodations(List<Accomodation> accomodations)
+        {
+            if (UniqueId == Guid.Empty)
+                throw new NullReferenceException("Park object has not been created. Use Create() to create park object");
+            this.Accomodations.AddRange(accomodations);
         }
 
     }

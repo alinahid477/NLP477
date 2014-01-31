@@ -11,10 +11,15 @@ using System.Threading.Tasks;
 
 using Ninject;
 using Ninject.Modules;
+using Ninject.Web.Common;
 using Ninject.Extensions.Conventions;
 using NLP.Processor.Loggers;
 using NLP.Processor.Exceptions;
 using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
+using NLP.Domain;
+using NLP.Processor.Data;
+using NLP.Repository.AccomodationRepository;
+using NLP.Infrastructure.Logic;
 
 namespace NLP.Processor
 {
@@ -28,7 +33,10 @@ namespace NLP.Processor
             Kernel.Bind<IEventSerializer>().To<EventSerializer>().InSingletonScope(); // verified. singleton
 
             //Db Context
-            Kernel.Bind<NLPDomainContext>().ToConstructor(x => new NLPDomainContext());
+            Kernel.Bind<NLPDomainContext>().ToConstructor(x => new NLPDomainContext()).InRequestScope();
+
+            // Data Objects
+            Kernel.Bind<IDomainQuery>().To<DomainQuery>().InSingletonScope();
 
             //Configurators          
             Kernel.Bind<IExceptionMangerProfiles>().To<ExceptionManagerProfiles>().InSingletonScope(); // verified. singleton
@@ -43,10 +51,13 @@ namespace NLP.Processor
 
             //Repostiories - all in request scope
             Kernel.Bind<IParkRepository>().To<ParkRepository>();
+            Kernel.Bind<IAccomodationRepository>().To<AccomodationRepository>();
+
+            
 
             Kernel.Bind(x =>
             {
-                x.FromThisAssembly().SelectAllClasses().InheritedFromAny(typeof(Handles<>), typeof(Subscribes<>)).BindAllInterfaces().Configure(c => c.InTransientScope());
+                x.FromThisAssembly().SelectAllClasses().InheritedFromAny(typeof(ILogic), typeof(Handles<>), typeof(Subscribes<>)).BindAllInterfaces().Configure(c => c.InTransientScope());
             });
             Kernel.Bind(x =>
             {

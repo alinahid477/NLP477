@@ -16,6 +16,7 @@ using NLP.Processor.Loggers;
 using NLP.Infrastructure.Commands;
 using Ninject.Web.Common;
 using System.Configuration;
+using NLP.Processor.AccomodationProcessor.Commands;
 namespace NLP477.Tests.NLPLibTest
 {
     [TestClass]
@@ -41,6 +42,23 @@ namespace NLP477.Tests.NLPLibTest
             DownloadParksCommand command = new DownloadParksCommand(dto, "admin");
             var mockLogger = new Mock<CommandLogger>();
             
+            CommandBus bus = new CommandBus(kernel, null);
+            bus.Send(command);
+            /*var mockParkRepo = new Mock<ParkRepository>();
+            var mockHandler = new Mock<DownloadParksCommandHandler>(mockParkRepo);
+            mockHandler.Object.Handle(mockCommand);*/
+
+        }
+
+
+        [TestMethod]
+        public void TestDownloadAccomodation()
+        {
+            AccomodationDTO dto = new AccomodationDTO();
+
+            DownloadAccomodationsCommand command = new DownloadAccomodationsCommand(dto, "admin");
+            var mockLogger = new Mock<CommandLogger>();
+
             CommandBus bus = new CommandBus(kernel, null);
             bus.Send(command);
             /*var mockParkRepo = new Mock<ParkRepository>();

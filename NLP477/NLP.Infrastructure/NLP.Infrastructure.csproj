@@ -58,6 +58,7 @@
     <Compile Include="Events\IEventLogger.cs" />
     <Compile Include="Events\IEventSerializer.cs" />
     <Compile Include="Events\Subscribes.cs" />
+    <Compile Include="Logic\ILogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

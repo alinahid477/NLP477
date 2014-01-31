@@ -1,11 +1,14 @@
-﻿using NLP.Domain.Places;
-using NLP.Infrastructure.Events;
-using NLP.Repository.Contexts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using NLP.Domain.Logic;
+using NLP.Domain.Places;
+using NLP.Infrastructure.Events;
+using NLP.Repository.Contexts;
+
 
 namespace NLP.Repository.AccomodationRepository
 {
@@ -37,6 +40,14 @@ namespace NLP.Repository.AccomodationRepository
         public override void Update(Accomodation park)
         { 
             
+        }
+
+        public void AddBulk(AccomodationLogic logicalEntity)
+        {
+            context.Accomodations.AddRange(logicalEntity.Accomodations);
+            this.uncommittedEvents = logicalEntity.Events.ToList();
+            context.SaveChanges();
+            this.CommitEvents();
         }
     }
 }

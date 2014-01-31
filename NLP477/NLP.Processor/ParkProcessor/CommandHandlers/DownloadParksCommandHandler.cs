@@ -33,7 +33,7 @@ namespace NLP.Processor.ParkProcessor.CommandHandlers
         private void ProcessAction(DownloadParksCommand command)
         {
             ParkLogic logic = new ParkLogic();
-            logic.DownloadParksFromExternalSource(command.ParkDTO);
+            logic.DownloadFromExternalSource(command.ParkDTO);
             this.repository.AddBulk(logic);
         }
 

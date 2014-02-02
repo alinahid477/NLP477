@@ -33,6 +33,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\packages\EntityFramework.Extended.6.0.0.86\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
@@ -50,6 +53,8 @@
     <Compile Include="Contexts\NLPDomainContext.cs" />
     <Compile Include="AccomodationRepository\IAccomodationRepository.cs" />
     <Compile Include="AccomodationRepository\AccomodationRepository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ParkRepository\IParkRepository.cs" />
     <Compile Include="ParkRepository\ParkRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

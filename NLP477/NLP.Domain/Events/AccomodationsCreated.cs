@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using NLP.Infrastructure.Events;
+using NLP.Domain.Places;
 
 
 namespace NLP.Domain.Events
@@ -12,10 +13,10 @@ namespace NLP.Domain.Events
 
     public class AccomodationsCreated: AbstractEvent, IEvent
     {
-        public string Message { get; set; }
-        public AccomodationsCreated(string msg)
+        public string Message { get; private set; }
+        public AccomodationsCreated(string message)
         {
-            this.Message = msg;
+            this.Message = message;
         }
     }
 }

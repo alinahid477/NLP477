@@ -29,7 +29,7 @@ namespace NLP477.Tests.NLPLibTest
         {
             
             this.kernel = new StandardKernel();
-            kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+            //kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
             this.kernel.Load(new NLP.Processor.Binder());
             
         }

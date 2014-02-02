@@ -1,4 +1,5 @@
-﻿using NLP.Infrastructure.Aggregate;
+﻿using NLP.Domain.Events;
+using NLP.Infrastructure.Aggregate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -36,6 +37,7 @@ namespace NLP.Domain.Places
             ParkCode = parkCode;
             Description = description;
             this.Locations = locations;
+            this.events.Add(new ParkCreated(this));
         }
 
         public void AddAccomodation(Accomodation accomodation)
@@ -49,6 +51,17 @@ namespace NLP.Domain.Places
             if (UniqueId == Guid.Empty)
                 throw new NullReferenceException("Park object has not been created. Use Create() to create park object");
             this.Accomodations.AddRange(accomodations);
+            this.events.Add(new AccomodationsCreated(string.Format("Accomodations added : {0}.", accomodations.Count)));
+        }
+
+        public void AddAccomodations(List<Accomodation> accomodations, bool isNewRange)
+        {
+            if (isNewRange)
+            {
+                this.Accomodations.Clear();
+                this.events.Add(new AccomodationsCreated(string.Format("Accomodations in Park {0} cleared for adding accomodations from scratch.", this.Title)));
+            }
+            this.AddAccomodations(accomodations);
         }
 
     }

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using NLP.Domain.Logic;
 using NLP.Domain.Places;
 using NLP.Infrastructure.Events;
 using NLP.Repository.Contexts;
@@ -32,22 +31,40 @@ namespace NLP.Repository.AccomodationRepository
             return accom;
         }
 
-        public override void Add(Accomodation park)
+        public override void Add(Accomodation accomodation)
         { 
         
         }
 
-        public override void Update(Accomodation park)
+        public void Add(List<Accomodation> accomodations)
+        {
+            /*context.Configuration.LazyLoadingEnabled = false;
+            List<Park> parks = context.Parks.Include("Accomodations").ToList();
+            foreach (Accomodation accom in accomodations)
+            {
+                int[] parkIDs = accom.Parks.Select(sel=>sel.ID).ToArray();
+                List<Park> relatedParks = parks.Where(sel=>parkIDs.Contains(sel.ID)).ToList();
+                accom.SetParks(relatedParks);
+            }*/
+            context.Accomodations.AddRange(accomodations);
+            List<IEvent> eventList = new List<IEvent>();
+            foreach (Accomodation a in accomodations)
+            {
+                eventList.AddRange(a.Events);
+            }
+            this.uncommittedEvents = eventList;
+            context.SaveChanges();
+            this.CommitEvents();
+        }
+
+        public override void Update(Accomodation accomodation)
         { 
             
         }
 
-        public void AddBulk(AccomodationLogic logicalEntity)
+        public override Accomodation GetByID(int ID)
         {
-            context.Accomodations.AddRange(logicalEntity.Accomodations);
-            this.uncommittedEvents = logicalEntity.Events.ToList();
-            context.SaveChanges();
-            this.CommitEvents();
+            throw new NotImplementedException();
         }
     }
 }

@@ -10,6 +10,6 @@ namespace NLP.Domain
 {
     public interface IDomainQuery
     {
-        List<Park> ParksGetAll();
+        List<Park> GetAllParks();
     }
 }

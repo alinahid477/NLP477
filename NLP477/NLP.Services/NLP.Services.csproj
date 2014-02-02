@@ -41,6 +41,33 @@
   <ItemGroup>
     <Compile Include="External\ExternalReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimMetrics\BaseClasses\Abstract\AbstractAffineGapCost.cs" />
+    <Compile Include="SimMetrics\BaseClasses\Abstract\AbstractStringMetric.cs" />
+    <Compile Include="SimMetrics\BaseClasses\Abstract\AbstractSubstitutionCost.cs" />
+    <Compile Include="SimMetrics\BaseClasses\Abstract\AbstractTokeniserQGramN.cs" />
+    <Compile Include="SimMetrics\BaseClasses\Interfaces\IAffineGapCost.cs" />
+    <Compile Include="SimMetrics\BaseClasses\Interfaces\IStringMetric.cs" />
+    <Compile Include="SimMetrics\BaseClasses\Interfaces\ISubstitutionCost.cs" />
+    <Compile Include="SimMetrics\BaseClasses\Interfaces\ITermHandler.cs" />
+    <Compile Include="SimMetrics\BaseClasses\Interfaces\ITokeniser.cs" />
+    <Compile Include="SimMetrics\EditDistance\Levenstein.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\costfunctions\AffineGapRange1To0Multiplier1Over3.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\costfunctions\AffineGapRange5To0Multiplier1.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\costfunctions\SubCostRange0To1.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\costfunctions\SubCostRange1ToMinus2.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\costfunctions\SubCostRange5ToMinus3.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\MathFuncs.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Tokenisers\TokeniserQGram2.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Tokenisers\TokeniserQGram2Extended.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Tokenisers\TokeniserQGram3.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Tokenisers\TokeniserQGram3Extended.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Tokenisers\TokeniserSGram2.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Tokenisers\TokeniserSGram2Extended.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Tokenisers\TokeniserSGram3.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Tokenisers\TokeniserSGram3Extended.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Tokenisers\TokeniserUtilities.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Tokenisers\TokeniserWhitespace.cs" />
+    <Compile Include="SimMetrics\UtilityClasses\Wordhandlers\DummyStopTermHandler.cs" />
     <Compile Include="Util\Utility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

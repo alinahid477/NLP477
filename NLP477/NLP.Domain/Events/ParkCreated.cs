@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 using NLP.Infrastructure.Events;
+using NLP.Domain.Places;
 
 
 namespace NLP.Domain.Events
 {
-    public class ParksCreated : AbstractEvent, IEvent
+    public class ParkCreated : AbstractEvent, IEvent
     {
-        public string Message { get; set; }
-        public ParksCreated(string msg)
+        public Park Park { get; private set; }
+        public ParkCreated(Park park)
         {
-            this.Message = msg;
+            this.Park = park;
         }
     }
 }

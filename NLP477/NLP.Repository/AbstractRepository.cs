@@ -23,6 +23,7 @@ namespace NLP.Repository
         
         protected void CommitEvents()
         {
+            if (this.eventBus == null) return;
             foreach (IEvent @event in uncommittedEvents)
             {
                 eventBus.Publish(@event);
@@ -33,5 +34,7 @@ namespace NLP.Repository
         public abstract void Update(TEntity entity);
 
         public abstract void Add(TEntity entity);
+
+        public abstract TEntity GetByID(int ID);
     }
 }

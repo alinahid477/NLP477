@@ -20,6 +20,7 @@ using NLP.Domain;
 using NLP.Processor.Data;
 using NLP.Repository.AccomodationRepository;
 using NLP.Infrastructure.Logic;
+using NLP.Domain.Factories;
 
 namespace NLP.Processor
 {
@@ -35,8 +36,14 @@ namespace NLP.Processor
             //Db Context
             Kernel.Bind<NLPDomainContext>().ToConstructor(x => new NLPDomainContext()).InRequestScope();
 
+            //Repostiories - all in request scope
+            Kernel.Bind<IParkRepository>().To<ParkRepository>().InRequestScope();
+            Kernel.Bind<IAccomodationRepository>().To<AccomodationRepository>().InRequestScope();
+
             // Data Objects
-            Kernel.Bind<IDomainQuery>().To<DomainQuery>().InSingletonScope();
+            //Kernel.Bind<IDomainQuery>().To<DomainQuery>().WithConstructorArgument("NLPDomainContext", x=>x.Kernel.Get<NLPDomainContext>());
+            Kernel.Bind<IDomainQuery>().To<DomainQuery>().InRequestScope();
+            Kernel.Bind<IPlaceFactory>().ToConstructor(x=>new PlaceFactory(x.Context.Kernel.Get<IDomainQuery>())).InRequestScope();
 
             //Configurators          
             Kernel.Bind<IExceptionMangerProfiles>().To<ExceptionManagerProfiles>().InSingletonScope(); // verified. singleton
@@ -49,19 +56,17 @@ namespace NLP.Processor
             Kernel.Bind<ICommandLogger>().To<CommandLogger>().InSingletonScope(); // verified. ok as singleton
             Kernel.Bind<IEventLogger>().To<EventLogger>().InSingletonScope(); // verified. ok as singleton
 
-            //Repostiories - all in request scope
-            Kernel.Bind<IParkRepository>().To<ParkRepository>();
-            Kernel.Bind<IAccomodationRepository>().To<AccomodationRepository>();
+            
 
             
 
             Kernel.Bind(x =>
             {
-                x.FromThisAssembly().SelectAllClasses().InheritedFromAny(typeof(ILogic), typeof(Handles<>), typeof(Subscribes<>)).BindAllInterfaces().Configure(c => c.InTransientScope());
+                x.FromThisAssembly().SelectAllClasses().InheritedFromAny(typeof(Handles<>), typeof(Subscribes<>)).BindAllInterfaces().Configure(c => c.InRequestScope());
             });
             Kernel.Bind(x =>
             {
-                x.FromThisAssembly().SelectAllClasses().InheritedFromAny(typeof(IExceptionPolicy<>)).BindAllInterfaces().Configure(c => c.InTransientScope());
+                x.FromThisAssembly().SelectAllClasses().InheritedFromAny(typeof(IExceptionPolicy<>)).BindAllInterfaces().Configure(c => c.InRequestScope());
             });
         }
     }

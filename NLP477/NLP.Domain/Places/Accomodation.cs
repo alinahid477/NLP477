@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using NLP.Infrastructure.Aggregate;
+using NLP.Domain.Events;
 
 namespace NLP.Domain.Places
 {
@@ -21,14 +22,23 @@ namespace NLP.Domain.Places
         public string Url { get; private set; }
         public string Type { get; private set; }
 
+        public virtual List<Park> Parks { get; private set; }
 
-        public void Create(Guid uniqueId, string title, string url, string type, string description)
+        public void Create(Guid uniqueId, string title, string url, string type, string description, List<Park> parkList)
         {
             UniqueId = uniqueId;
             Title = title;
             Url = url;
             Type = type;
             Description = description;
+            Parks = parkList;
+
+            events.Add(new AccomodationCreated(this));
+        }
+
+        public void SetParks(List<Park> parks)
+        {
+            Parks = parks;
         }
     }
 }

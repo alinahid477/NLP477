@@ -10,7 +10,7 @@ using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
 
 namespace NLP.Processor.ParkProcessor.EventHandlers
 {
-    public class ParksCreatedEventHandler : Subscribes<ParksCreated>
+    public class ParksCreatedEventHandler : Subscribes<ParkCreated>
     {
         private ExceptionManager exManager;
 
@@ -19,7 +19,7 @@ namespace NLP.Processor.ParkProcessor.EventHandlers
             this.exManager = eManager;
         }
 
-        public void Handle(ParksCreated @event)
+        public void Handle(ParkCreated @event)
         {
             exManager.Process(() =>
                 {

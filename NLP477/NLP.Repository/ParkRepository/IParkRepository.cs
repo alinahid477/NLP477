@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using NLP.Domain.Places;
-using NLP.Domain.Logic;
+
 
 namespace NLP.Repository.ParkRepository
 {
@@ -15,6 +16,7 @@ namespace NLP.Repository.ParkRepository
         List<Park> GetAll();
         void Add(Park park);
         void Update(Park park);
-        void AddBulk(ParkLogic park);
+        void Add(List<Park> parks);
+        void Update(List<Park> parks);
     }
 }

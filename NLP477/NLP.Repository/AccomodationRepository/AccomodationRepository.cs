@@ -38,6 +38,8 @@ namespace NLP.Repository.AccomodationRepository
 
         public void Add(List<Accomodation> accomodations)
         {
+            
+            //EITHER
             /*context.Configuration.LazyLoadingEnabled = false;
             List<Park> parks = context.Parks.Include("Accomodations").ToList();
             foreach (Accomodation accom in accomodations)
@@ -46,6 +48,36 @@ namespace NLP.Repository.AccomodationRepository
                 List<Park> relatedParks = parks.Where(sel=>parkIDs.Contains(sel.ID)).ToList();
                 accom.SetParks(relatedParks);
             }*/
+
+            //OR
+            // This StackOverflow Problem : http://stackoverflow.com/questions/7478570/entity-framework-code-first-adding-to-many-to-many-relationship-by-id 
+            //states similar to what I'm facing here.
+
+            
+            List<Park> addedToContextParkList = new List<Park>(); // this is to avoid attaching 1 park twice in the context. So we can add that to accomodation but not to context.
+                                                                    // attaching one object twice to context causes error.
+
+            foreach(Accomodation accom in accomodations)
+            {
+                List<Park> dbParkList = new List<Park>();
+                foreach (Park park in accom.Parks)
+                {
+                    Park dbPark = addedToContextParkList.Where(p => p.ID == park.ID).FirstOrDefault();
+                    if (dbPark == null)
+                    {
+                        dbPark = new Park(park.ID, park.UniqueId, park.Title, park.Url, park.ParkCode, park.Description, park.Locations);
+                        context.Parks.Attach(dbPark);
+                        dbParkList.Add(dbPark);
+                        addedToContextParkList.Add(dbPark);
+                    }
+                    else
+                    {
+                        dbParkList.Add(dbPark);
+                    }
+                }
+                accom.SetParks(dbParkList);
+            }
+            
             context.Accomodations.AddRange(accomodations);
             List<IEvent> eventList = new List<IEvent>();
             foreach (Accomodation a in accomodations)

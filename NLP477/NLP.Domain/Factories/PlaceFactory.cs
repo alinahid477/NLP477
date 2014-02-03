@@ -25,6 +25,8 @@ namespace NLP.Domain.Factories
         }
         //public PlaceFactory() { }
 
+        
+
         public List<Park> DownloadFromExternalSource(ParkDTO dto)
         {
             string downloadedtext = ExternalReader.Download(dto.DownloadSource);
@@ -37,8 +39,7 @@ namespace NLP.Domain.Factories
                 {
                     llist.Add(new Location(s.Trim()));
                 }
-                Park x = new Park();
-                x.Create(pdto.ItemID, pdto.ParkName, pdto.ParkURL, pdto.ParkCODE, pdto.ParkDescription, llist);
+                Park x = new Park(pdto.ItemID, pdto.ParkName, pdto.ParkURL, pdto.ParkCODE, pdto.ParkDescription, llist);
                 parkList.Add(x);
             }
             return parkList;
@@ -46,6 +47,7 @@ namespace NLP.Domain.Factories
 
         public List<Accomodation> DownloadFromExternalSource(AccomodationDTO dto)
         {
+            
             string downloadedtext = ExternalReader.Download(dto.DownloadSource);
             List<AccomodationDTO> list = JsonConvert.DeserializeObject<List<AccomodationDTO>>(downloadedtext);
             List<Accomodation> accomList = new List<Accomodation>();

@@ -17,6 +17,7 @@ namespace NLP.Repository.Contexts
             : base("NLPDataContext")
         {
             var _ = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<NLPDomainContext>());
             //var __ = typeof(System.Data.Entity.SqlServerCompact.SqlCeProviderServices);
             //Database.SetInitializer(new NLPDBContextInitializer());
         }

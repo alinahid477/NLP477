@@ -39,6 +39,7 @@ namespace NLP.Processor.AccomodationProcessor.CommandHandlers
 
         private void ProcessAction(DownloadAccomodationsCommand command)
         {
+
             List<Accomodation> accomodations = placeFactory.DownloadFromExternalSource(command.AccomodationDTO);
             this.repository.Add(accomodations);
         }

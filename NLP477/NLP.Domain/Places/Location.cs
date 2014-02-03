@@ -15,6 +15,7 @@ namespace NLP.Domain.Places
         public int ID { get; private set; }
         public string Name { get; private set; }
 
+        protected Location() { }
         public Location(string name)
         {
             this.Name = name;

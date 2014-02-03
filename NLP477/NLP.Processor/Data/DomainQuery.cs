@@ -10,6 +10,7 @@ using NLP.Repository.ParkRepository;
 using NLP.Infrastructure.Events;
 using NLP.Repository.Contexts;
 using Ninject;
+using System.Data.Entity;
 
 namespace NLP.Processor.Data
 {

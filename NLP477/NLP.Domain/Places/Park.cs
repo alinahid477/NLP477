@@ -29,8 +29,20 @@ namespace NLP.Domain.Places
             this.Accomodations = new List<Accomodation>();
         }
 
-        public void Create(Guid uniqueId, string title, string url, string parkCode, string description, List<Location> locations)
+        public Park(Guid uniqueId, string title, string url, string parkCode, string description, List<Location> locations)
         {
+            UniqueId = uniqueId;
+            Title = title;
+            Url = url;
+            ParkCode = parkCode;
+            Description = description;
+            this.Locations = locations;
+            this.events.Add(new ParkCreated(this));
+        }
+
+        public Park(int id, Guid uniqueId, string title, string url, string parkCode, string description, List<Location> locations)
+        {
+            ID = id;
             UniqueId = uniqueId;
             Title = title;
             Url = url;

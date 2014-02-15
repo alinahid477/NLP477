@@ -13,7 +13,7 @@ namespace NLP.Repository.AccomodationRepository
         Accomodation GetAccomodation(Guid uniqueId);
         List<Accomodation> GetAccomodationsByPark(Guid parkUniqueId);
         void Add(List<Accomodation> accomodations);
-        void Add(Accomodation accomodation);
+        void Add(Accomodation entity);
         void Update(Accomodation accomodation);
     }
 }

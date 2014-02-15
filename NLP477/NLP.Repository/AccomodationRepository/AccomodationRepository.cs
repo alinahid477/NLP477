@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using NLP.Domain.Places;
 using NLP.Infrastructure.Events;
 using NLP.Repository.Contexts;
+using System.Data.Entity;
 
 
 namespace NLP.Repository.AccomodationRepository
@@ -22,23 +23,34 @@ namespace NLP.Repository.AccomodationRepository
         public List<Accomodation> GetAccomodationsByPark(Guid parkUniqueId)
         { 
             List<Accomodation> list = new List<Accomodation>();
+            list = (from accomList in context.Accomodations where accomList.Parks.Where(p=>p.UniqueId == parkUniqueId).ToList().Count > 0 select accomList).ToList();
             return list;
         }
 
         public Accomodation GetAccomodation(Guid uniqueId)
         {
-            Accomodation accom = null;
-            return accom;
+            return context.Accomodations.Where(entity=>entity.UniqueId == uniqueId).FirstOrDefault();
         }
 
-        public override void Add(Accomodation accomodation)
-        { 
-        
+        public override Accomodation GetByID(int ID)
+        {
+            return context.Accomodations.Where(entity => entity.ID == ID).FirstOrDefault();
+        }
+
+        public override void Add(Accomodation entity)
+        {
+            List<Park> dbParkList = new List<Park>();
+            foreach (Park park in entity.Parks)
+            {
+                Park dbPark = new Park(park.ID, park.UniqueId, park.Title, park.Url, park.ParkCode, park.Description, park.Locations);
+                context.Parks.Attach(dbPark);
+                dbParkList.Add(dbPark);
+            }
+            entity.SetParks(dbParkList);
         }
 
         public void Add(List<Accomodation> accomodations)
         {
-            
             //EITHER
             /*context.Configuration.LazyLoadingEnabled = false;
             List<Park> parks = context.Parks.Include("Accomodations").ToList();
@@ -89,14 +101,14 @@ namespace NLP.Repository.AccomodationRepository
             this.CommitEvents();
         }
 
-        public override void Update(Accomodation accomodation)
-        { 
-            
-        }
-
-        public override Accomodation GetByID(int ID)
+        public override void Update(Accomodation entity)
         {
-            throw new NotImplementedException();
+            context.Accomodations.Attach(entity);
+            context.Entry(entity).State = EntityState.Modified;
+            context.SaveChanges();
+
+            this.uncommittedEvents = entity.Events.ToList();
+            this.CommitEvents();
         }
     }
 }

@@ -42,8 +42,12 @@ namespace NLP.Repository.ParkRepository
         }
 
         public override void Add(Park entity)
-        { 
-            
+        {
+            context.Parks.Add(entity);
+            context.SaveChanges();
+
+            this.uncommittedEvents = entity.Events.ToList();
+            this.CommitEvents();
         }
 
         public void Add(List<Park> parks)
@@ -60,8 +64,13 @@ namespace NLP.Repository.ParkRepository
         }
 
         public override void Update(Park entity)
-        { 
-            
+        {
+            context.Parks.Attach(entity);
+            context.Entry(entity).State = EntityState.Modified;
+            context.SaveChanges();
+
+            this.uncommittedEvents = entity.Events.ToList();
+            this.CommitEvents();
         }
 
         public void Update(List<Park> parks)
